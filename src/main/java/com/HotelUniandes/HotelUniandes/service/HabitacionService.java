@@ -17,10 +17,9 @@ public class HabitacionService {
     @Autowired
     TipoHabitacionRepository rp2;
 
-    public String saveHabitacion(Habitacion h, int tp){
-        h.setIdTipoHabitacion(tp);
-        rp.save(h);
-        return "La habitacion " + h.getId() + " fue guardada correctamente";
+    public String saveHabitacion(Habitacion habitacionEntity){
+        rp.save(habitacionEntity);
+        return "La habitacion " + habitacionEntity.getId() + " fue guardada correctamente";
     }
 
     public List<Habitacion> getAllHabitacion(){
@@ -31,16 +30,6 @@ public class HabitacionService {
         return rp.findById(id).get();
     }
 
-    public Habitacion updateHabitacion(int id, Habitacion h, int idTipo){
-        Habitacion hr = rp.findById(id).get();
-        Habitacion n = null;
-        if(hr != null){
-            hr.setId(h.getId());
-            hr.setIdTipoHabitacion(idTipo);
-            return hr;
-        }
-        return n;
-    }
 
     public String deleteHabitacion(int id){
         if(rp.findById(id).isPresent()){
