@@ -31,7 +31,7 @@ public class TipoHabitacionController {
         return new ResponseEntity<String>(sr.saveTipoHabitacion(tp), HttpStatus.OK);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<TipoHabitacion>> getAllTipoHabitacion(){
         return new ResponseEntity<List<TipoHabitacion>>(sr.getAllTipoHabitacion(), HttpStatus.OK);
     }
