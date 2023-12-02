@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.HotelUniandes.HotelUniandes.model.Habitacion;
-import com.HotelUniandes.HotelUniandes.model.TipoHabitacion;
 import com.HotelUniandes.HotelUniandes.repository.HabitacionRepository;
 import com.HotelUniandes.HotelUniandes.repository.TipoHabitacionRepository;
 
@@ -33,12 +32,11 @@ public class HabitacionService {
     }
 
     public Habitacion updateHabitacion(int id, Habitacion h, int idTipo){
-        TipoHabitacion tp = rp2.findById(idTipo).get();
         Habitacion hr = rp.findById(id).get();
         Habitacion n = null;
         if(hr != null){
             hr.setId(h.getId());
-            hr.setIdTipoHabitacion(tp);
+            hr.setIdTipoHabitacion(idTipo);
             return hr;
         }
         return n;

@@ -1,6 +1,7 @@
 package com.HotelUniandes.HotelUniandes.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Data;
 import lombok.Getter;
@@ -13,6 +14,7 @@ public class Habitacion {
     @Getter @Setter
     private int id;
 
+    @Field("TipoHabitacion_id")
     @Getter @Setter
     private int idTipoHabitacion;
 
