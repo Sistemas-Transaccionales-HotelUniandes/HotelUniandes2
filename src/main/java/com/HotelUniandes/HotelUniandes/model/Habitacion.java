@@ -14,6 +14,11 @@ public class Habitacion {
     private int id;
 
     @Getter @Setter
-    private TipoHabitacion tipoHabitacion;
+    private int idTipoHabitacion;
+
+    public Habitacion(int id, int idTipoHabitacion){
+        this.id = id;
+        this.idTipoHabitacion = idTipoHabitacion;
+    }
     
 }
