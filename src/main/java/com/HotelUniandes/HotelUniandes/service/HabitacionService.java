@@ -19,13 +19,12 @@ public class HabitacionService {
     @Autowired
     TipoHabitacionRepository rp2;
 
-    public String saveHabitacion(Habitacion habitacionEntity){
+    public Habitacion saveHabitacion(Habitacion habitacionEntity){
         if(!rp2.findById(habitacionEntity.getTipoHabitacionId()).isEmpty()){
             rp.save(habitacionEntity);
-            return "La habitacion " + habitacionEntity.getId() + " fue guardada correctamente";
+            return habitacionEntity;
         }
-        return "Error al guardar";
-        
+        return null;
     }
 
     public List<Habitacion> getAllHabitacion(){

@@ -108,7 +108,7 @@ public class ServicioController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteServicioById(@PathVariable int id){
-        return new ResponseEntity<String>(sr.deleteServicioById(id), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteServicioById(id), HttpStatus.NO_CONTENT);
     }
     
 }

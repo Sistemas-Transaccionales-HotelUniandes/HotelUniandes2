@@ -20,8 +20,8 @@ public class ReservaController {
     private ReservaService reservaService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveReserva(@RequestBody Reserva reserva){
-        return new ResponseEntity<>(reservaService.saveReserva(reserva), HttpStatus.OK);
+    public ResponseEntity<Reserva> saveReserva(@RequestBody Reserva reserva){
+        return new ResponseEntity<Reserva>(reservaService.saveReserva(reserva), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -47,7 +47,7 @@ public class ReservaController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteReserva(@PathVariable int id){
         String mensaje = reservaService.deleteReserva(id);
-        return new ResponseEntity<>(mensaje, HttpStatus.OK);
+        return new ResponseEntity<>(mensaje, HttpStatus.NO_CONTENT);
     }
 }
 
