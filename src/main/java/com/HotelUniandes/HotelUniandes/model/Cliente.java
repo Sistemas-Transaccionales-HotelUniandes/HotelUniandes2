@@ -27,10 +27,10 @@ public class Cliente {
     @Getter @Setter
     private String estado;
 
-    public Cliente(String nombre, String email, String tipoDocumento, String documento, int reservaId, String estado) {
+    public Cliente(String nombre, String email, String tipodocumento, String documento, int reservaId, String estado) {
         this.nombre = nombre;
         this.email = email;
-        this.tipodocumento = tipoDocumento;
+        this.tipodocumento = tipodocumento;
         this.documento = documento;
         this.reservaId = reservaId;
         this.estado = estado;
