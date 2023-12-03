@@ -26,9 +26,9 @@ public class HabitacionController {
     HabitacionService sr;
 
     @PostMapping("/save")
-    public ResponseEntity<String> createHabitacion( @RequestBody Habitacion habitacion){
+    public ResponseEntity<Habitacion> createHabitacion( @RequestBody Habitacion habitacion){
         sr.saveHabitacion(habitacion);
-        return new ResponseEntity<String>(sr.saveHabitacion(habitacion),HttpStatus.OK);
+        return new ResponseEntity<Habitacion>(sr.saveHabitacion(habitacion),HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -48,6 +48,6 @@ public class HabitacionController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteHabitacionById(@PathVariable int id){
-        return new ResponseEntity<String>(sr.deleteHabitacion(id), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteHabitacion(id), HttpStatus.NO_CONTENT);
     }
 }

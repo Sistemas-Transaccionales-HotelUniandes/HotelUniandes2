@@ -25,9 +25,9 @@ public class ClienteController {
     ClienteService sr;
 
     @PostMapping("/save")
-    public ResponseEntity<String> createCliente( @RequestBody Cliente c){
+    public ResponseEntity<Cliente> createCliente( @RequestBody Cliente c){
         sr.saveCliente(c);
-        return new ResponseEntity<String>(sr.saveCliente(c),HttpStatus.OK);
+        return new ResponseEntity<Cliente>(sr.saveCliente(c),HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -57,7 +57,7 @@ public class ClienteController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteClienteById(@PathVariable int id){
-        return new ResponseEntity<String>(sr.deleteCliente(id), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteCliente(id), HttpStatus.NO_CONTENT);
     }
     
 }

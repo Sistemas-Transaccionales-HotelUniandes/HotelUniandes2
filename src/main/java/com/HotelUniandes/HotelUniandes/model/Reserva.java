@@ -26,14 +26,17 @@ public class Reserva {
     private int acompañantes;
     @Getter @Setter
     private int habitacionesReserva;
+    @Getter @Setter
+    private int cuentaReserva;
     
-    public Reserva(int id, int numNoches, Date fechaInicio, String estado, int acompañantes, int habitacionesReserva) {
+    public Reserva(int id, int numNoches, Date fechaInicio, String estado, int acompañantes, int habitacionesReserva, int cuentaReserva) {
         this.id = id;
         this.numNoches = numNoches;
         this.fechaInicio = fechaInicio;
         this.estado = estado;
         this.acompañantes = acompañantes;
         this.habitacionesReserva = habitacionesReserva;
+        this.cuentaReserva = cuentaReserva;
     }
     
 }

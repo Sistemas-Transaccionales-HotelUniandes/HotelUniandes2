@@ -19,12 +19,12 @@ public class ClienteService {
     @Autowired
     ReservaRepository rp2;
 
-    public String saveCliente(Cliente c){
+    public Cliente saveCliente(Cliente c){
         if(!rp2.findById(c.getReservaId()).isEmpty()){
             rp.save(c);
-            return "El cliente " + c.getId() + " fue guardado correctamente";
+            return c;
         }
-        return "Error al guardar";
+        return null;
     }
 
     public List<Cliente> getAllCliente(){

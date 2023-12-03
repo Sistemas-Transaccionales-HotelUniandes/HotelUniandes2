@@ -48,7 +48,7 @@ public class TipoHabitacionController {
 
     @DeleteMapping("/delete/{tipo}")
     public ResponseEntity<String> deleteTipoHabitacionByTipo(@PathVariable String tipo){
-        return new ResponseEntity<String>(sr.deleteTipoHabitacion(tipo), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteTipoHabitacion(tipo), HttpStatus.NO_CONTENT);
     }
     
 }
