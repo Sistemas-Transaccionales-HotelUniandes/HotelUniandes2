@@ -15,9 +15,8 @@ public class TipoHabitacionService {
     TipoHabitacionRepository rp;
 
 
-    public String saveTipoHabitacion(TipoHabitacion tp){
-        rp.save(tp);
-        return "El tipo de Habitacion " + tp.getTipo() + " fue guardado con exito";
+    public TipoHabitacion saveTipoHabitacion(TipoHabitacion tp){
+        return rp.save(tp);
     }
 
     public List<TipoHabitacion> getAllTipoHabitacion(){

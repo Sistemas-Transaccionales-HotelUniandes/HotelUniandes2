@@ -26,9 +26,8 @@ public class TipoHabitacionController {
     TipoHabitacionService sr;
 
     @PostMapping("/save")
-    public ResponseEntity<String> createTipoHabitacion( @RequestBody TipoHabitacion tp){
-        sr.saveTipoHabitacion(tp);
-        return new ResponseEntity<String>(sr.saveTipoHabitacion(tp), HttpStatus.OK);
+    public ResponseEntity<TipoHabitacion> createTipoHabitacion( @RequestBody TipoHabitacion tp){
+        return new ResponseEntity<TipoHabitacion>(sr.saveTipoHabitacion(tp), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -48,7 +47,7 @@ public class TipoHabitacionController {
 
     @DeleteMapping("/delete/{tipo}")
     public ResponseEntity<String> deleteTipoHabitacionByTipo(@PathVariable String tipo){
-        return new ResponseEntity<String>(sr.deleteTipoHabitacion(tipo), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteTipoHabitacion(tipo), HttpStatus.NO_CONTENT);
     }
     
 }
