@@ -573,7 +573,7 @@
           <details xmi:id="_-wrADY2AEe6PvatxaaIQBg00" key="uuid" value="_-wrADY2AEe6PvatxaaIQBg"/>
         </eAnnotations>
       </xmi:Extension>
-      <ownedEnd xmi:id="_-wrADo2AEe6PvatxaaIQBg" name="" type="_-wrACo2AEe6PvatxaaIQBg" owningAssociation="_-wrADY2AEe6PvatxaaIQBg" association="_-wrADY2AEe6PvatxaaIQBg">
+      <ownedEnd xmi:id="_-wrADo2AEe6PvatxaaIQBg" name="" type="_-wrAaY2AEe6PvatxaaIQBg" owningAssociation="_-wrADY2AEe6PvatxaaIQBg" association="_-wrADY2AEe6PvatxaaIQBg">
         <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
           <eAnnotations xmi:id="_-wrADo2AEe6PvatxaaIQBg0" source="genmymodel">
             <details xmi:id="_-wrADo2AEe6PvatxaaIQBg00" key="uuid" value="_-wrADo2AEe6PvatxaaIQBg"/>
