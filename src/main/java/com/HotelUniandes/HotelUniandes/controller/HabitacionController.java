@@ -3,7 +3,6 @@ package com.HotelUniandes.HotelUniandes.controller;
 import java.util.List;
 
 import org.javatuples.Pair;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +23,6 @@ import com.HotelUniandes.HotelUniandes.service.HabitacionService;
 @RequestMapping("/Habitacion")
 public class HabitacionController {
     @Autowired
-    ModelMapper modelMapper;
-    @Autowired
     HabitacionService sr;
 
     @PostMapping("/save")
@@ -40,7 +37,7 @@ public class HabitacionController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Pair<TipoHabitacion, Habitacion>> getHabitacionByTipo(@PathVariable int id){
+    public ResponseEntity<Pair<TipoHabitacion, Habitacion>> getHabitacionById(@PathVariable int id){
         return new ResponseEntity<Pair<TipoHabitacion, Habitacion>>(sr.getHabitacionById(id), HttpStatus.OK);
     }
 
@@ -50,7 +47,7 @@ public class HabitacionController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteHabitacionByTipo(@PathVariable int id){
+    public ResponseEntity<String> deleteHabitacionById(@PathVariable int id){
         return new ResponseEntity<String>(sr.deleteHabitacion(id), HttpStatus.OK);
     }
 }

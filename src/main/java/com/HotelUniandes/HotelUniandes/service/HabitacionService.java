@@ -34,14 +34,13 @@ public class HabitacionService {
 
     public Habitacion updateoHabitacionById(Habitacion h, int id){
         Habitacion h2 = rp.findById(id).get();
-        Habitacion n = null;
         if(h2 != null){
             h2.setId(h.getId());
             h2.setTipoHabitacionId(h.getTipoHabitacionId());
             rp.save(h2);
             return h2;
         }
-        return n;
+        return null;
     }
 
 

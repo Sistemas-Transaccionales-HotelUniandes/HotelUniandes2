@@ -30,7 +30,6 @@ public class TipoHabitacionService {
 
     public TipoHabitacion updateTipoHabitacionByTipo(String tipo, TipoHabitacion tph){
         TipoHabitacion tp = rp.findTipoHabitacionByTipo(tipo);
-        TipoHabitacion n = null;
         if(tp != null){
             tp.setTipo(tph.getTipo());
             tp.setCapacidad(tph.getCapacidad());
@@ -40,7 +39,7 @@ public class TipoHabitacionService {
             rp.save(tp);
             return tp;
         }
-        return n;
+        return null;
     }
 
     public String deleteTipoHabitacion(String tipo){
