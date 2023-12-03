@@ -1,6 +1,5 @@
 package com.HotelUniandes.HotelUniandes.model;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,9 +25,9 @@ public class Reserva {
     @Getter @Setter
     private int acompañantes;
     @Getter @Setter
-    private List<Integer> habitacionesReserva;
+    private int habitacionesReserva;
     
-    public Reserva(int id, int numNoches, Date fechaInicio, String estado, int acompañantes, List<Integer> habitacionesReserva) {
+    public Reserva(int id, int numNoches, Date fechaInicio, String estado, int acompañantes, int habitacionesReserva) {
         this.id = id;
         this.numNoches = numNoches;
         this.fechaInicio = fechaInicio;

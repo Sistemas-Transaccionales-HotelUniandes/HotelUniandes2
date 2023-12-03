@@ -20,8 +20,12 @@ public class HabitacionService {
     TipoHabitacionRepository rp2;
 
     public String saveHabitacion(Habitacion habitacionEntity){
-        rp.save(habitacionEntity);
-        return "La habitacion " + habitacionEntity.getId() + " fue guardada correctamente";
+        if(!rp2.findById(habitacionEntity.getTipoHabitacionId()).isEmpty()){
+            rp.save(habitacionEntity);
+            return "La habitacion " + habitacionEntity.getId() + " fue guardada correctamente";
+        }
+        return "Error al guardar";
+        
     }
 
     public List<Habitacion> getAllHabitacion(){
@@ -35,10 +39,12 @@ public class HabitacionService {
     public Habitacion updateoHabitacionById(Habitacion h, int id){
         Habitacion h2 = rp.findById(id).get();
         if(h2 != null){
-            h2.setId(h.getId());
-            h2.setTipoHabitacionId(h.getTipoHabitacionId());
-            rp.save(h2);
-            return h2;
+            if(rp2.findById(h.getTipoHabitacionId()).isPresent()){
+                h2.setId(h.getId());
+                h2.setTipoHabitacionId(h.getTipoHabitacionId());
+                rp.save(h2);
+                return h2;
+            }
         }
         return null;
     }
