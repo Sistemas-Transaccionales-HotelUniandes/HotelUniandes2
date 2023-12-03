@@ -2,12 +2,15 @@ package com.HotelUniandes.HotelUniandes.service;
 
 import java.util.List;
 
+import org.javatuples.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.HotelUniandes.HotelUniandes.model.Reserva;
+import com.HotelUniandes.HotelUniandes.model.TipoHabitacion;
 import com.HotelUniandes.HotelUniandes.repository.HabitacionRepository;
 import com.HotelUniandes.HotelUniandes.repository.ReservaRepository;
+import com.HotelUniandes.HotelUniandes.repository.TipoHabitacionRepository;
 
 @Service
 public class ReservaService {
@@ -16,6 +19,8 @@ public class ReservaService {
     ReservaRepository rp;
     @Autowired
     HabitacionRepository rp2;
+    @Autowired
+    TipoHabitacionRepository rp3;
 
     public String saveReserva(Reserva r){
         rp.save(r);
@@ -26,8 +31,8 @@ public class ReservaService {
         return rp.findAll();
     }
 
-    public Reserva getReservaById(int id){
-        return rp.findById(id).get();
+    public Pair<Reserva, TipoHabitacion> getReservaById(int id){
+        return new Pair<Reserva, TipoHabitacion>(rp.findById(id).get(), rp3.findById(rp2.findById(rp.findById(id).get().getHabitacionesReserva()).get().getTipoHabitacionId()).get());
     }
 
     public Reserva updateReservaById(Reserva r, int id){

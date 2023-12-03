@@ -1,11 +1,13 @@
 package com.HotelUniandes.HotelUniandes.controller;
 
+import org.javatuples.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.HotelUniandes.HotelUniandes.model.Reserva;
+import com.HotelUniandes.HotelUniandes.model.TipoHabitacion;
 import com.HotelUniandes.HotelUniandes.service.ReservaService;
 
 import java.util.List;
@@ -28,7 +30,7 @@ public class ReservaController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Reserva> getHabitacionById(@PathVariable int id){
+    public ResponseEntity<Pair<Reserva, TipoHabitacion>> getReservaById(@PathVariable int id){
         return new ResponseEntity<>(reservaService.getReservaById(id), HttpStatus.OK);
     }
 
