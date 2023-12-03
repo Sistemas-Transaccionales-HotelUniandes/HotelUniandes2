@@ -42,7 +42,7 @@ public class ClienteController {
 
     @GetMapping("/get/{id}/estado")
     public ResponseEntity<String>getEstadoById(@PathVariable int id){
-        return new ResponseEntity<String>(sr.getEstadoCliente(id), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.getEstadoClienteReserva(id), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
