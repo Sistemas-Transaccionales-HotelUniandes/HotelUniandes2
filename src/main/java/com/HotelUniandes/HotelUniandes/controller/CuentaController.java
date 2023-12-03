@@ -47,9 +47,10 @@ public class CuentaController {
         return new ResponseEntity<Cuenta>(sr.updateCuentaByClienteId(id, c), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}/agregarServicio/{servicioId}")
-    public ResponseEntity<Cuenta> updateHabitacionById(@PathVariable int id, @PathVariable int serivicioId){
-        return new ResponseEntity<Cuenta>(sr.updateAgregarServicioByClienteId(serivicioId, id), HttpStatus.OK);
+    @PutMapping("/update/{id}/agregarServicio/")
+    public ResponseEntity<Cuenta> updateHabitacionById(@PathVariable int id, @RequestBody String serivicioId){
+        int servicio = Integer.parseInt(serivicioId);
+        return new ResponseEntity<Cuenta>(sr.updateAgregarServicioByClienteId(servicio, id), HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteCuentaById(@PathVariable int id){

@@ -39,7 +39,7 @@ public class CuentaService {
             }
         }
         if(count != 0){
-            int total = c.getTotal() + calcularTotal(c.getServiciosConsumidos());
+            int total = c.getTotal() + calcularTotal1(c.getServiciosConsumidos());
             c.setTotal(total);
             rp.save(c);
             return c;
@@ -65,7 +65,7 @@ public class CuentaService {
             }
         }
         if(count != 0){
-            int total = c.getTotal() + calcularTotal(c.getServiciosConsumidos());
+            int total = c.getTotal() + calcularTotal2(c.getServiciosConsumidos());
             c2.setId(c.getId());
             c2.setTotal(total);
             c2.setServiciosConsumidos(c.getServiciosConsumidos());
@@ -78,6 +78,8 @@ public class CuentaService {
     public Cuenta updateAgregarServicioByClienteId(int idServicio, int id){
         Cuenta c2 = rp.findById(rp4.findById(rp3.findById(id).get().getReservaId()).get().getCuentaReserva()).get(); 
         c2.getServiciosConsumidos().add(idServicio);
+        int total = calcularTotal2(c2.getServiciosConsumidos());
+        c2.setTotal(total);
         rp.save(c2);
         return c2;
     }
@@ -90,7 +92,7 @@ public class CuentaService {
         return "Error al eliminar";
     }
 
-    public int calcularTotal(List<Integer> serviciosConsumidos ){
+    public int calcularTotal1(List<Integer> serviciosConsumidos ){
         int total = 0;
         for(int i = 0; i < serviciosConsumidos.size(); i++){
             Servicio s = rp2.findById(serviciosConsumidos.get(i)).get();
@@ -98,6 +100,17 @@ public class CuentaService {
         }
 
         return total/2;
+
+    }
+
+    public int calcularTotal2(List<Integer> serviciosConsumidos ){
+        int total = 0;
+        for(int i = 0; i < serviciosConsumidos.size(); i++){
+            Servicio s = rp2.findById(serviciosConsumidos.get(i)).get();
+            total += s.getPrecio();
+        }
+
+        return total;
 
     }
     
