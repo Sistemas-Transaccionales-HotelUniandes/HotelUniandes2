@@ -30,8 +30,12 @@ public class ReservaController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Pair<Reserva, TipoHabitacion>> getReservaById(@PathVariable int id){
-        return new ResponseEntity<>(reservaService.getReservaById(id), HttpStatus.OK);
+    public ResponseEntity<Reserva> getReservaById(@PathVariable int id){
+        return new ResponseEntity<Reserva>(reservaService.getReservaById(id), HttpStatus.OK);
+    }
+    @GetMapping("/get/{id}/tipohabitacion")
+    public ResponseEntity<Pair<Reserva, TipoHabitacion>> getReservaByIdHab(@PathVariable int id){
+        return new ResponseEntity<>(reservaService.getReservaByIdHab(id), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")

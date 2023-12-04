@@ -35,8 +35,12 @@ public class ReservaService {
         return rp.findAll();
     }
 
-    public Pair<Reserva, TipoHabitacion> getReservaById(int id){
+    public Pair<Reserva, TipoHabitacion> getReservaByIdHab(int id){
         return new Pair<Reserva, TipoHabitacion>(rp.findById(id).get(), rp3.findById(rp2.findById(rp.findById(id).get().getHabitacionesReserva()).get().getTipoHabitacionId()).get());
+    }
+
+    public Reserva getReservaById(int id){
+        return rp.findById(id).get();
     }
 
     public Reserva updateReservaById(Reserva r, int id){

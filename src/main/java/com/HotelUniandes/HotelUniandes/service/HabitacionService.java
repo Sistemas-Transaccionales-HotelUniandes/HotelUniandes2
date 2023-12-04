@@ -31,7 +31,11 @@ public class HabitacionService {
         return rp.findAll();
     }
 
-    public Pair<TipoHabitacion, Habitacion> getHabitacionById(int id){
+    public Habitacion getHabitacionById(int id){
+        return rp.findById(id).get();
+    }
+
+    public Pair<TipoHabitacion, Habitacion> getHabitacionByIdHab(int id){
         return new Pair<TipoHabitacion, Habitacion>(rp2.findById(rp.findById(id).get().getTipoHabitacionId()).get(), rp.findById(id).get());
     }
 

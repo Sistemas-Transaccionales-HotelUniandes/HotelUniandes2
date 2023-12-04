@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.HotelUniandes.HotelUniandes.model.Habitacion;
+import com.HotelUniandes.HotelUniandes.model.Reserva;
 import com.HotelUniandes.HotelUniandes.model.TipoHabitacion;
 import com.HotelUniandes.HotelUniandes.service.HabitacionService;
 
@@ -37,8 +38,12 @@ public class HabitacionController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Pair<TipoHabitacion, Habitacion>> getHabitacionById(@PathVariable int id){
-        return new ResponseEntity<Pair<TipoHabitacion, Habitacion>>(sr.getHabitacionById(id), HttpStatus.OK);
+    public ResponseEntity<Habitacion> getReservaById(@PathVariable int id){
+        return new ResponseEntity<Habitacion>(sr.getHabitacionById(id), HttpStatus.OK);
+    }
+    @GetMapping("/get/{id}/tipohabitacion")
+    public ResponseEntity<Pair<TipoHabitacion, Habitacion>> getHabitacionByIdHab(@PathVariable int id){
+        return new ResponseEntity<Pair<TipoHabitacion, Habitacion>>(sr.getHabitacionByIdHab(id), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
