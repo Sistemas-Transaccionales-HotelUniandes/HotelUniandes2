@@ -22,12 +22,11 @@ public class ServicioService {
     public String savePiscina(Piscina psc){
         rp.save(psc);
         return "El serivicio de Piscina " + psc.getId() + " fue guardado correctamente";
-    }  
+    }
 
-    public String saveGimnasio(Gimnasio gim){
-        rp.save(gim);
-        return "El servicio de Gimnasio " + gim.getId() + " fue guardado correctamente";
-    }  
+    public Gimnasio saveGimnasio(Gimnasio gim){
+        return rp.save(gim);
+    }
 
     public String saveInternet(Internet inter){
         rp.save(inter);

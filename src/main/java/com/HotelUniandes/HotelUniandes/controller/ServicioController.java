@@ -38,9 +38,8 @@ public class ServicioController {
     }
 
     @PostMapping("/gimnasio/save")
-    public ResponseEntity<String> createGimnasio( @RequestBody Gimnasio gim){
-        sr.saveGimnasio(gim);
-        return new ResponseEntity<String>(sr.saveGimnasio(gim),HttpStatus.OK);
+    public ResponseEntity<Gimnasio> createGimnasio( @RequestBody Gimnasio gim){
+        return new ResponseEntity<Gimnasio>(sr.saveGimnasio(gim),HttpStatus.OK);
     }
 
     @PostMapping("/internet/save")
@@ -108,7 +107,7 @@ public class ServicioController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteServicioById(@PathVariable int id){
-        return new ResponseEntity<String>(sr.deleteServicioById(id), HttpStatus.OK);
+        return new ResponseEntity<String>(sr.deleteServicioById(id), HttpStatus.NO_CONTENT);
     }
     
 }
