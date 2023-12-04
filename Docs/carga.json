@@ -1,0 +1,180 @@
+db.createCollection("Cliente", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "nombre", "email", "documento", "tipoDocumento", "reservaId", "estado"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          nombre: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          email: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          documento: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          tipoDocumento: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          reservaId: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          estado: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          }
+        }
+      }
+    }
+  });
+
+  db.createCollection("Reserva", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "numNoches", "fechaInicio", "estado", "acompañantes", "habitacionReserva", "cuentaReserva"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          numNoches: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          fechaInicio: {
+            bsonType: "date",
+            description: "Debe ser una fecha y es requerida"
+          },
+          estado: {
+            enum: ["creada", "Chekin", "Checkout"],
+            description: "Puede ser 'creada', 'Chekin' o 'Checkout'"
+          },
+          acompañantes: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          habitacionReserva: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          cuentaReserva: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          }
+        }
+      }
+    }
+  });
+
+  db.createCollection("Habitacion", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "tipoHabitacionId"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          tipoHabitacionId: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          }
+        }
+      }
+    }
+  });
+
+  db.createCollection("TipoHabitacion", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "tipo", "descripcion", "precio", "capacidad"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          tipo: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          descripcion: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          },
+          precio: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          capacidad: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          }
+        }
+      }
+    }
+  });
+
+  db.createCollection("Cuenta", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "total", "serviciosConsumidos"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          total: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          serviciosConsumidos: {
+            bsonType: "array",
+            items: {
+              bsonType: "int"
+            },
+            description: "Debe ser una lista de enteros y es requerido"
+          }
+        }
+      }
+    }
+  });
+
+  db.createCollection("Servicio", {
+    validator: {
+      $jsonSchema: {
+        bsonType: "object",
+        required: ["_id", "precio", "fecha", "descripcion"],
+        properties: {
+          _id: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          precio: {
+            bsonType: "int",
+            description: "Debe ser un entero y es requerido"
+          },
+          fecha: {
+            bsonType: "date",
+            description: "Debe ser una fecha y es requerida"
+          },
+          descripcion: {
+            bsonType: "string",
+            description: "Debe ser un string y es requerido"
+          }
+        }
+      }
+    }
+  });
