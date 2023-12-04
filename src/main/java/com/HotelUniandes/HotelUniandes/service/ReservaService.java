@@ -22,12 +22,12 @@ public class ReservaService {
     @Autowired
     TipoHabitacionRepository rp3;
 
-    public String saveReserva(Reserva r){
+    public Reserva saveReserva(Reserva r){
         if(rp2.findById(r.getHabitacionesReserva()).isPresent()){
             rp.save(r);
-            return "La reserva " + r.getId() + " fue guardada correctamente";
+            return r;
         }
-        return "Error al guardar";
+        return null;
     }
         
 
@@ -49,6 +49,7 @@ public class ReservaService {
                 r2.setId(r.getId());
                 r2.setNumNoches(r.getNumNoches());
                 r2.setHabitacionesReserva(r.getHabitacionesReserva());
+                r2.setCuentaReserva(r.getCuentaReserva());
                 rp.save(r2);
                 return r2;
             }
